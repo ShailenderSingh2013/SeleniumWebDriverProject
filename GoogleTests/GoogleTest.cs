@@ -40,5 +40,17 @@ namespace GoogleTests
             Thread.Sleep(5000);
             Assert.AreEqual(BaseComponent.Driver.Title, "Selenium Tutorial - Google Search");
         }
+
+        [Test]
+        public void TestMethod3()
+        {
+            BaseComponent.LaunchBrowser("http://google.co.in");
+            BaseComponent.GetElement(Pages.home.SearchTextBox).SendKeys("C# Tutorial");
+            BaseComponent.GetElement(Pages.home.SearchTextBox).SendKeys(Keys.Tab);
+            Thread.Sleep(5000);
+            BaseComponent.GetDefaultElement(Pages.home.SearchButton).Click();
+            Thread.Sleep(5000);
+            Assert.AreEqual(BaseComponent.Driver.Title, "C# Tutorial - Google Search");
+        }
     }
 }
