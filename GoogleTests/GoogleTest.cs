@@ -63,5 +63,17 @@ namespace GoogleTests
             
             Assert.AreEqual(BaseComponent.Driver.Title, "Java Tutorial - Google Search");
         }
+
+        [Test]
+        public void TestMethod5()
+        {
+            BaseComponent.LaunchBrowser("http://google.co.in");
+            BaseComponent.GetElement(Pages.home.SearchTextBox).SendKeys("Appium Tutorial");
+            BaseComponent.GetElement(Pages.home.SearchTextBox).SendKeys(Keys.Tab);
+
+            BaseComponent.GetDefaultElement(Pages.home.SearchButton).Click();
+
+            Assert.AreEqual(BaseComponent.Driver.Title, "Appium Tutorial - Google Search");
+        }
     }
 }
